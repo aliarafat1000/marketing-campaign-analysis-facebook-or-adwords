@@ -16,133 +16,69 @@ This project analyzes the performance of two advertising platforms, **Facebook A
 
 ## Code and Analysis
 
-### Importing Libraries
-
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score, mean_squared_error
-from statsmodels.tsa.seasonal import seasonal_decompose
-from statsmodels.tsa.stattools import coint
-import scipy.stats as st
-from tabulate import tabulate
-```
 
 ### Data Preparation
 
-```python
-df = pd.read_csv("marketing_campaign.csv")
-df['Date'] = pd.to_datetime(df['Date'])
-```
+<img width="708" alt="image" src="https://github.com/user-attachments/assets/8e85fc5f-b2bc-4b9b-a6d4-e9a9514f652e" />
+
 
 ### Comparing Campaign Performance
 
 We compared the performance of Facebook and AdWords campaigns using histograms for clicks and conversions.
 
-```python
-plt.figure(figsize=(20, 10))
-# Facebook Ad Clicks
-plt.subplot(2, 4, 1)
-sns.histplot(df['Facebook Ad Clicks'], bins=7, edgecolor="k", kde=True, color='skyblue')
-# Facebook Ad Conversions
-plt.subplot(2, 4, 2)
-sns.histplot(df['Facebook Ad Conversions'], bins=7, edgecolor="k", kde=True, color='lightgreen')
-# AdWords Ad Clicks
-plt.subplot(2, 4, 3)
-sns.histplot(df['AdWords Ad Clicks'], bins=7, edgecolor="k", kde=True, color='salmon')
-# AdWords Ad Conversions
-plt.subplot(2, 4, 4)
-sns.histplot(df['AdWords Ad Conversions'], bins=7, edgecolor="k", kde=True, color='gold')
-plt.show()
-```
+![image](https://github.com/user-attachments/assets/fd1068b1-cbec-49fe-9e86-b796db68564e)
+
 
 ### Conversion Categories
 
 We categorized conversions into different ranges to analyze the frequency of high and low conversion days.
 
-```python
-def create_conversion_category(conversion_col):
-    category = []
-    for conversion in df[conversion_col]:
-        if conversion < 6:
-            category.append('less than 6')
-        elif conversion < 11:
-            category.append('6 - 10')
-        elif conversion < 16:
-            category.append('10 - 15')
-        else:
-            category.append('more than 15')
-    return category
+<img width="137" alt="image" src="https://github.com/user-attachments/assets/41f87156-df79-4948-bb2e-93ff3e3f8f57" />
 
-df['Facebook Conversions Category'] = create_conversion_category('Facebook Ad Conversions')
-df['AdWords Conversions Category'] = create_conversion_category('AdWords Ad Conversions')
+![image](https://github.com/user-attachments/assets/9a11afc1-f168-4f56-bb4d-19291f39c88d)
+
 ```
 
 ### Correlation Analysis
 
 We analyzed the correlation between ad clicks and conversions for both platforms.
 
-```python
-facebook_corr = df[['Facebook Ad Conversions','Facebook Ad Clicks']].corr()
-adwords_corr = df[['AdWords Ad Conversions','AdWords Ad Clicks']].corr()
-print('Correlation Coeff \n--------------')
-print('Facebook :',round(facebook_corr.values[0,1],2))
-print('AdWords : ',round(adwords_corr.values[0,1],2))
-```
+![image](https://github.com/user-attachments/assets/e06ab02d-ae0e-492b-8096-4325fc0f467d)
+
+<img width="110" alt="image" src="https://github.com/user-attachments/assets/62a80364-8994-4af8-ab30-d34e31af2bdc" />
 
 ### Hypothesis Testing
 
 We tested the hypothesis that Facebook ads result in more conversions than AdWords ads.
 
-```python
-t_stats, p_value = st.ttest_ind(a = df['Facebook Ad Conversions'], b = df['AdWords Ad Conversions'], equal_var = False)
-if p_value < 0.05:
-    print("\np-value is less than significance value, Reject the null hypothesis")
-else:
-    print("\np-value is greater than significance value, Accept the null hypothesis")
-```
+<img width="398" alt="image" src="https://github.com/user-attachments/assets/12a4d137-7ff8-4480-b0b5-750ed0eb18d5" />
+
 
 ### Regression Analysis
 
 We performed a linear regression to predict Facebook ad conversions based on clicks.
 
-```python
-X = df[['Facebook Ad Clicks']]
-y = df[['Facebook Ad Conversions']]
-reg_model = LinearRegression()
-reg_model.fit(X,y)
-prediction = reg_model.predict(X)
-r2 = r2_score(y, prediction)*100
-mse = mean_squared_error(y, prediction)
-print('Accuracy (R2 Score):',round(r2,2),'%')
-print('Mean Squared Error:', round(mse,2))
-```
+![image](https://github.com/user-attachments/assets/3b0da3af-197d-418b-b34e-fe7150981361)
+<img width="215" alt="image" src="https://github.com/user-attachments/assets/80e61bcf-08e0-46e8-977d-b5b1b3a63473" />
+![image](https://github.com/user-attachments/assets/da88ac08-53bf-4a8e-88fb-7c7e0b3c3441)
+
 
 ### Time Series Analysis
 
 We analyzed weekly and monthly trends in conversions and cost per conversion (CPC).
 
-```python
-df['month'] = df['Date'].dt.month
-df['week'] = df['Date'].dt.weekday
-weekly_conversion = df.groupby('week')[['Facebook Ad Conversions']].sum()
-monthly_conversion = df.groupby('month')[['Facebook Ad Conversions']].sum()
-```
+![image](https://github.com/user-attachments/assets/dbb1e83e-1072-4a0f-a49b-d045be42a75b)
+![image](https://github.com/user-attachments/assets/70a9d246-ee31-4722-bbc5-7eb0d7e217cf)
+![image](https://github.com/user-attachments/assets/d17bdce8-da5e-4e02-9fae-83116217f4ad)
+
+
 
 ### Cointegration Test
 
 We tested for a long-term equilibrium relationship between ad spend and conversions.
 
-```python
-score, p_value, _ = coint(df['Cost per Facebook Ad'], df['Facebook Ad Conversions'])
-if p_value < 0.05:
-    print("\np-value is less than significance value, Reject the null hypothesis")
-else:
-    print("\np-value is greater than significance value, Accept the null hypothesis")
-```
+<img width="404" alt="image" src="https://github.com/user-attachments/assets/ede1d8b6-7ebc-404b-8238-45f34dddf9d6" />
+
 
 ## Key Findings
 
