@@ -51,7 +51,9 @@ We compared Facebook and AdWords campaign performance by visualizing the distrib
 To better understand conversion patterns, we categorized conversions into different ranges. This helped us identify the frequency of high and low conversion days and provided insights into campaign performance variability.  
 
 <img width="137" alt="image" src="https://github.com/user-attachments/assets/41f87156-df79-4948-bb2e-93ff3e3f8f57" />  
-![image](https://github.com/user-attachments/assets/9a11afc1-f168-4f56-bb4d-19291f39c88d)  
+
+![image](https://github.com/user-attachments/assets/1cb8b761-719c-4b1f-931c-a484b639f280)
+
 
 ### **Correlation Analysis**  
 A correlation analysis was conducted to determine the strength of the relationship between ad clicks and conversions for both Facebook and AdWords. The findings indicate a **strong positive correlation (0.87) between Facebook ad clicks and conversions**, meaning that an increase in Facebook ad clicks is strongly associated with higher conversions.  
