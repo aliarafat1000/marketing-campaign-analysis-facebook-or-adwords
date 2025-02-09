@@ -14,7 +14,7 @@ This project analyzes the performance of two advertising platforms, **Facebook A
 - **Clicks**: Number of user engagements.
 - **Cost-effectiveness**: ROI in terms of cost per click (CPC) and cost per conversion.
 
-Here’s a concise table summarizing the skills used in the project:
+Table summarizing the skills used in the project:
 
 | **Category**            | **Skills/Tools**                                                                 |
 |--------------------------|---------------------------------------------------------------------------------|
@@ -27,9 +27,6 @@ Here’s a concise table summarizing the skills used in the project:
 | **Business Insights**    | Data-Driven Decision Making, Resource Allocation, Campaign Optimization         |
 | **Reporting**            | Visual Storytelling, Markdown Documentation                                     |
 
-This table provides a quick overview of the skills and tools used in the project.
-
-Here's your refined **README** with detailed explanations for each analysis step while keeping the images intact:  
 
 ---
 
@@ -67,7 +64,7 @@ We conducted hypothesis testing to verify whether **Facebook ads result in signi
 - **Null Hypothesis (H₀):** No difference in conversions between Facebook and AdWords.  
 - **Alternative Hypothesis (H₁):** Facebook ads lead to more conversions than AdWords.  
 
-With a **p-value of 9.35e-134**, we rejected the null hypothesis, confirming that Facebook ads are significantly more effective in driving conversions.  
+With a **p-value of 9.35**, we rejected the null hypothesis, confirming that Facebook ads are significantly more effective in driving conversions.  
 
 <img width="398" alt="image" src="https://github.com/user-attachments/assets/12a4d137-7ff8-4480-b0b5-750ed0eb18d5" />  
 
@@ -118,4 +115,3 @@ To determine if **advertising spend and conversions maintain a long-term equilib
 
 ---
 
-Would you like me to add an **Installation & Usage** section or any other modifications? 😊
