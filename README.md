@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project analyzes the performance of two advertising platforms, **Facebook Ads** and **AdWords Ads**, to determine which platform is more effective in terms of **conversions**, **clicks**, and **cost-effectiveness**. The dataset includes daily data for the entire year of 2019, with metrics such as ad views, clicks, conversions, cost per ad, click-through rate (CTR), and cost per click (CPC).
+This project analyzes the performance of two advertising platforms to which a company campaigned their product on, **Facebook Ads** and **AdWords Ads**, to determine which platform is more effective in terms of **conversions**, **clicks**, and **cost-effectiveness**. The dataset includes daily data for the entire year of 2019, with metrics such as ad views, clicks, conversions, cost per ad, click-through rate (CTR), and cost per click (CPC).
 
 ## Research Question
 
